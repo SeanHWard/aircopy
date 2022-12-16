@@ -30,7 +30,7 @@ export default function Home() {
         body: JSON.stringify({ platform, product, audience, CTA }),
       });
       const data = await response.json();
-      setResult(data.result);
+      setResult(data.result.replaceAll("\n", "<br />"));
     } catch(e) {
       alert('Failed to generate DIC copy. Try again')
     } finally {
@@ -97,7 +97,8 @@ export default function Home() {
           </div>
         )}
 
-        <div className={styles.result}>{result}</div>
+        {result &&
+        <div className={styles.result} dangerouslySetInnerHTML={{ __html: result}}></div>}
       </main>
     </div>
   );
