@@ -56,6 +56,8 @@ export default function Main() {
       <main className={styles.main}>
         <div className={styles.formContainer}>
           <h1>Aircopy 1.0</h1>
+          <h3>By Sean Ward </h3>
+          <p>Follow me on Twitter <a href="https://twitter.com/WeanSard">@WeanSard</a></p>
           <form onSubmit={onSubmit}>
             <div className={styles.topFormContainer}>
               <div className={styles.topFormRow}>
@@ -68,11 +70,11 @@ export default function Main() {
                     value={type}
                     onChange={(e) => setType(e.target.value)}
                   >
-                    <option value="DIC (Disrupt, Intrigue, Click)">DIC</option>
+                    <option value="DIC (Disrupt, Intrigue, Click)">DIC - Disrupt, Intrigue, Click</option>
                     <option value="PAS (Pain/Desire, Amplify, Solution)">
-                      PAS
+                      PAS - Pain/Desire - Amplify, Solution
                     </option>
-                    <option value="HSO (Hook, Story, Offer)">HSO</option>
+                    <option value="HSO (Hook, Story, Offer)">HSO - Hook, Story, Offer</option>
                   </select>
                 </div>
 
