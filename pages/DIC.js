@@ -62,8 +62,9 @@ export default function Main() {
             <div className={styles.topFormContainer}>
               <div className={styles.topFormRow}>
                 <div className={styles.formElement}>
-                  <label>Type</label>
+                  <label className={styles.label}>Type</label>
                   <select
+                    className={styles.select}
                     type="text"
                     name="type"
                     placeholder="Enter the platform"
@@ -79,15 +80,16 @@ export default function Main() {
                 </div>
 
                 <div className={styles.formElement}>
-                  <label>Platform</label>
+                  <label className={styles.label}>Platform</label>
                   <select
+                    className={styles.select}
                     type="text"
                     name="platform"
                     placeholder="Enter the platform"
                     value={platform}
                     onChange={(e) => setPlatform(e.target.value)}
                   >
-                    <option value="email">Email</option>
+                    <option value="email. Include a subject line precending the words Subject Line:">Email</option>
                     <option value="direct message">Direct Message</option>
                     <option value="newsletter">Newsletter</option>
                     <option value="social media advertisement">Social Media Ad</option>
@@ -96,11 +98,11 @@ export default function Main() {
               </div>
               <div>
                 <div className={styles.formElement}>
-                  <label>Length</label>
+                  <label className={styles.label}>Length</label>
                   <select
+                    className={styles.select}
                     type="text"
                     name="length"
-                    
                     value={length}
                     onChange={(e) => setLength(e.target.value)}
                   >
@@ -110,7 +112,7 @@ export default function Main() {
                   </select>
                 </div>
                 <div className={styles.formElement}>
-                  <label>Formality</label>
+                  <label className={styles.label}>Formality</label>
                   <input
                     type="number"
                     min={1}
@@ -124,8 +126,9 @@ export default function Main() {
               </div>
             </div>
             <div className={styles.formElement}>
-              <label>Describe your product/service</label>
-              <input
+              <label className={styles.label}>Describe your product/service</label>
+              <textarea
+              className={styles.textarea}
                 type="text"
                 name="product"
                 //placeholder="Enter the platform"
@@ -134,8 +137,9 @@ export default function Main() {
               />
             </div>
             <div className={styles.formElement}>
-              <label>Describe your intended audience</label>
-              <input
+              <label className={styles.label}>Describe your intended audience</label>
+              <textarea
+              className={styles.textarea}
                 type="text"
                 name="audience"
                 //placeholder="Enter the platform"
@@ -144,10 +148,12 @@ export default function Main() {
               />
             </div>
             <div className={styles.formElement}>
-              <label>What is your Call To Action (CTA)?</label>
-              <input
-                type="textarea"
+              <label className={styles.label}>What is your Call To Action (CTA)?</label>
+              <textarea
+              className={styles.textarea}
+                type="text"
                 name="cta"
+                
                 //placeholder="Enter the platform"
                 value={CTA}
                 onChange={(e) => setCTA(e.target.value)}
