@@ -1,16 +1,18 @@
-import React from 'react';
+import React from "react";
 import Head from "next/head";
 import { useState } from "react";
 import styles from "./index.module.css";
 
-export default function Home() {
-  
-  const [platform, setPlatform] = useState("twitter dm");
-  const [product, setProduct] = useState("personal training");
-  const [audience, setAudience] = useState("fat people");
-  const [CTA, setCTA] = useState("subscribe to email list");
+export default function Main() {
+  const [type, setType] = useState("");
+  const [platform, setPlatform] = useState("t");
+  const [length, setLength] = useState("");
+  const [formality, setFormality] = useState();
+  const [product, setProduct] = useState("");
+  const [audience, setAudience] = useState("");
+  const [CTA, setCTA] = useState("");
 
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
   const [result, setResult] = useState();
 
   async function onSubmit(event) {
@@ -27,16 +29,23 @@ export default function Home() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ platform, product, audience, CTA }),
+        body: JSON.stringify({
+          type,
+          platform,
+          length,
+          formality,
+          product,
+          audience,
+          CTA,
+        }),
       });
       const data = await response.json();
       setResult(data.result.replaceAll("\n", "<br />"));
-    } catch(e) {
-      alert('Failed to generate DIC copy. Try again')
+    } catch (e) {
+      alert("Failed to generate DIC copy. Try again");
     } finally {
       setLoading(false);
     }
-    
 
     // reset input
     //setAnimalInput("");
@@ -44,61 +53,122 @@ export default function Home() {
 
   return (
     <div>
-      <Head>
-        <title>WardAI</title>
-        <link rel="icon" href="/dog.png" />
-      </Head>
-
       <main className={styles.main}>
-        <h3>DIC Framework generator</h3>
-        <form onSubmit={onSubmit}>
+        <div className={styles.formContainer}>
+          <h1>Aircopy 1.0</h1>
+          <form onSubmit={onSubmit}>
+            <div className={styles.topFormContainer}>
+              <div className={styles.topFormRow}>
+                <div className={styles.formElement}>
+                  <label>Type</label>
+                  <select
+                    type="text"
+                    name="type"
+                    placeholder="Enter the platform"
+                    value={type}
+                    onChange={(e) => setType(e.target.value)}
+                  >
+                    <option value="DIC (Disrupt, Intrigue, Click)">DIC</option>
+                    <option value="PAS (Pain/Desire, Amplify, Solution)">
+                      PAS
+                    </option>
+                    <option value="HSO (Hook, Story, Offer)">HSO</option>
+                  </select>
+                </div>
 
-          <label>Platform</label>
-          <input
-            type="text"
-            name="platform"
-            placeholder="Enter the platform"
-            value={platform}
-            onChange={(e) => setPlatform(e.target.value)}
-          />
+                <div className={styles.formElement}>
+                  <label>Platform</label>
+                  <select
+                    type="text"
+                    name="platform"
+                    placeholder="Enter the platform"
+                    value={platform}
+                    onChange={(e) => setPlatform(e.target.value)}
+                  >
+                    <option value="email">Email</option>
+                    <option value="direct message">Direct Message</option>
+                    <option value="newsletter">Newsletter</option>
+                    <option value="social media advertisement">Social Media Ad</option>
+                  </select>
+                </div>
+              </div>
+              <div>
+                <div className={styles.formElement}>
+                  <label>Length</label>
+                  <select
+                    type="text"
+                    name="length"
+                    
+                    value={length}
+                    onChange={(e) => setLength(e.target.value)}
+                  >
+                    <option value="long (>200 words)">Long</option>
+                    <option value="medium {>50 words and <200)">Medium</option>
+                    <option value="short (<50 words)">Short</option>
+                  </select>
+                </div>
+                <div className={styles.formElement}>
+                  <label>Formality</label>
+                  <input
+                    type="number"
+                    min={1}
+                    max={10}
+                    name="formality"
+                    placeholder="(Informal) 1 - 10 (Formal)"
+                    value={formality}
+                    onChange={(e) => setFormality(e.target.value)}
+                  />
+                </div>
+              </div>
+            </div>
+            <div className={styles.formElement}>
+              <label>Describe your product/service</label>
+              <input
+                type="text"
+                name="product"
+                //placeholder="Enter the platform"
+                value={product}
+                onChange={(e) => setProduct(e.target.value)}
+              />
+            </div>
+            <div className={styles.formElement}>
+              <label>Describe your intended audience</label>
+              <input
+                type="text"
+                name="audience"
+                //placeholder="Enter the platform"
+                value={audience}
+                onChange={(e) => setAudience(e.target.value)}
+              />
+            </div>
+            <div className={styles.formElement}>
+              <label>What is your Call To Action (CTA)?</label>
+              <input
+                type="textarea"
+                name="cta"
+                //placeholder="Enter the platform"
+                value={CTA}
+                onChange={(e) => setCTA(e.target.value)}
+              />
+            </div>
+            
+            <input className={styles.button} type="submit" value="Generate" />
+          </form>
+        </div>
+        <div>
+          {loading && (
+            <div>
+              <h3>Loading...</h3>
+            </div>
+          )}
 
-          <label>Product</label>
-          <input
-            type="text"
-            name="product"
-            placeholder="Enter the platform"
-            value={product}
-            onChange={(e) => setProduct(e.target.value)}
-          />
-
-          <label>Audience</label>
-          <input
-            type="text"
-            name="audience"
-            placeholder="Enter the platform"
-            value={audience}
-            onChange={(e) => setAudience(e.target.value)}
-          />
-
-          <label>CTA</label>
-          <input
-            type="text"
-            name="cta"
-            placeholder="Enter the platform"
-            value={CTA}
-            onChange={(e) => setCTA(e.target.value)}
-          />
-          <input type="submit" value="Generate names" />
-        </form>
-
-        {loading && (
-          <div>
-            <h3>Loading...</h3>
-          </div>
-        )}
-
-        {result &&
-        <div className={styles.result} dangerouslySetInnerHTML={{ __html: result}}></div>}
+          {result && (
+            <div
+              className={styles.result}
+              dangerouslySetInnerHTML={{ __html: result }}
+            ></div>
+          )}
+        </div>
       </main>
     </div>
   );

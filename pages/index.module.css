@@ -1,66 +1,64 @@
-@font-face {
-  font-family: "ColfaxAI";
-  src: url(https://cdn.openai.com/API/fonts/ColfaxAIRegular.woff2)
-      format("woff2"),
-    url(https://cdn.openai.com/API/fonts/ColfaxAIRegular.woff) format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: "ColfaxAI";
-  src: url(https://cdn.openai.com/API/fonts/ColfaxAIBold.woff2) format("woff2"),
-    url(https://cdn.openai.com/API/fonts/ColfaxAIBold.woff) format("woff");
-  font-weight: bold;
-  font-style: normal;
-}
-.main,
-.main input {
-  font-size: 16px;
-  line-height: 24px;
-  color: #353740;
-  font-family: "ColfaxAI", Helvetica, sans-serif;
-}
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+
 .main {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding-top: 60px;
+  font-family: 'Work Sans', sans-serif;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  padding-left: 150px;
+  padding-right: 150px;
 }
-.main .icon {
-  width: 34px;
+
+.formContainer {
+  max-width: 50%;
 }
-.main h3 {
-  font-size: 32px;
-  line-height: 40px;
-  font-weight: bold;
-  color: #202123;
-  margin: 16px 0 40px;
-}
-.main form {
+
+.topFormContainer {
   display: flex;
   flex-direction: column;
-  width: 320px;
+  
 }
-.main input[type="text"] {
-  padding: 12px 16px;
-  border: 1px solid #10a37f;
+
+.topFormRow {
+  display: flex;
+  gap: 10px;
+
+}
+
+.formElement {
+  display: flex;
+  flex-direction: column;
+}
+
+.button {
+  margin-top: 20px;
+  width: 25%;
+  padding: 10px;
+  background-color:blanchedalmond;
+  border-style: none;
   border-radius: 4px;
-  margin-bottom: 24px;
 }
-.main ::placeholder {
-  color: #8e8ea0;
-  opacity: 1;
+
+.result {
+
 }
-.main input[type="submit"] {
-  padding: 12px 0;
-  color: #fff;
-  background-color: #10a37f;
-  border: none;
-  border-radius: 4px;
-  text-align: center;
-  cursor: pointer;
-}
-.main .result {
-  font-weight: bold;
-  margin-top: 40px;
+
+/* Between 700px and 900px */
+@media screen and (max-width: 1024px) {
+  .main {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .mainContainer {
+    display: flex;
+   
+  }
 }
