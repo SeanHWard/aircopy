@@ -30,7 +30,8 @@ function generatePrompt(platform, product, audience, CTA) {
     Optimize for: ${platform}.
     To sell the following product/service: ${product}. 
     This person is targeting: ${audience}. 
-    The CTA (call to action) is: ${CTA}.`
+    The CTA (call to action) is: ${CTA}.
+    Make it thought provoking.`
   );
 }
 
