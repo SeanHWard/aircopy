@@ -24,7 +24,7 @@
 .topFormRow {
   display: flex;
   gap: 10px;
-
+  width: 100%;
 }
 
 .formElement {
@@ -34,9 +34,14 @@
 
 .button {
   margin-top: 20px;
-  width: 25%;
+  
   padding: 10px;
-  background-color:blanchedalmond;
+  padding-left: 25px;
+  padding-right: 25px;
+  background-color:#38B6FF;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
   border-style: none;
   border-radius: 4px;
 }
@@ -57,8 +62,9 @@
     padding-right: 15px;
   }
 
-  .mainContainer {
-    display: flex;
-   
-  }
+.formContainer {
+  max-width: 100%;
+}
+
+  
 }

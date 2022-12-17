@@ -27,7 +27,7 @@ function generatePrompt(type, platform, length, formality, product, audience, CT
   
   return (
     `Write copy using the ${type} framework.
-    Make each sentence a new line.
+    Skip a line in between each sentence.
     Optimize the message for a ${length} ${platform}.
     To product/service that is being marketed is ${product}. 
     Target the message to ${audience}. 
