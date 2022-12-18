@@ -27,12 +27,12 @@ function generatePrompt(type, platform, length, formality, product, audience, CT
 
   
   return (
-    `Write copy using the ${type} framework.
+    `Write copy ${type}.
     Skip a line in between each sentence.
     Optimize the message for a ${length} ${platform}.
     The product/service that is being marketed is ${product}. 
     Target the message to ${audience}. 
-    The end goal/CTA (call to action) of the copy is to get the reader to: ${CTA}.
+    The call to action of the copy is to get the reader to: ${CTA}.
     On a scale of 1-10, 1 being super informal and 10 being very formal make it a ${formality}.
 
     Dont include any template filler words in the response.

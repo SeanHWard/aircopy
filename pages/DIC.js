@@ -70,11 +70,14 @@ export default function Main() {
                     value={type}
                     onChange={(e) => setType(e.target.value)}
                   >
-                    <option value="DIC (Disrupt, Intrigue, Click)">DIC - Disrupt, Intrigue, Click</option>
-                    <option value="PAS (Pain/Desire, Amplify, Solution)">
-                      PAS - Pain/Desire - Amplify, Solution
+                    <option value="by first disrupting the reader, then offering them some kind of intrigue,
+                     followed by getting them to follow the call to action">DIC - Disrupt, Intrigue, Click</option>
+                    <option value="by first raising awareness to their pain or desire, then amplify it, 
+                    followed by offering the solution (which is our call to action), at the end.">
+                      PAS - Pain, Amplify, Solution
                     </option>
-                    <option value="HSO (Hook, Story, Offer)">HSO - Hook, Story, Offer</option>
+                    <option value="by first providing the reader with a hook, followed by a story, 
+                    then offering them the call to action.">HSO - Hook, Story, Offer</option>
                   </select>
                 </div>
 
@@ -162,7 +165,7 @@ export default function Main() {
             <input className={styles.button} type="submit" value="Generate" />
           </form>
         </div>
-        <div>
+        <div className={styles.resultArea}>
           {loading && (
             <div>
               <h3>Loading...</h3>
