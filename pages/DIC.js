@@ -5,9 +5,9 @@ import styles from "./index.module.css";
 
 export default function Main() {
   const [type, setType] = useState("");
-  const [platform, setPlatform] = useState("t");
+  const [platform, setPlatform] = useState("");
   const [length, setLength] = useState("");
-  const [formality, setFormality] = useState();
+  const [formality, setFormality] = useState("");
   const [product, setProduct] = useState("");
   const [audience, setAudience] = useState("");
   const [CTA, setCTA] = useState("");
@@ -17,6 +17,8 @@ export default function Main() {
 
   async function onSubmit(event) {
     event.preventDefault();
+
+    setResult("")
 
     if (loading) {
       return;
@@ -70,14 +72,15 @@ export default function Main() {
                     value={type}
                     onChange={(e) => setType(e.target.value)}
                   >
+                    <option></option>
                     <option value="by first disrupting the reader, then offering them some kind of intrigue,
                      followed by getting them to follow the call to action">DIC - Disrupt, Intrigue, Click</option>
                     <option value="by first raising awareness to their pain or desire, then amplify it, 
-                    followed by offering the solution (which is our call to action), at the end.">
+                    followed by offering the solution (which is our call to action), at the end">
                       PAS - Pain, Amplify, Solution
                     </option>
                     <option value="by first providing the reader with a hook, followed by a story, 
-                    then offering them the call to action.">HSO - Hook, Story, Offer</option>
+                    then offering them the call to action">HSO - Hook, Story, Offer</option>
                   </select>
                 </div>
 
@@ -91,7 +94,8 @@ export default function Main() {
                     value={platform}
                     onChange={(e) => setPlatform(e.target.value)}
                   >
-                    <option value="email. Include a subject line precending the words Subject Line:">Email</option>
+                    <option></option>
+                    <option value="email. Include a subject line that starts with Subject Line:">Email</option>
                     <option value="direct message">Direct Message</option>
                     <option value="newsletter">Newsletter</option>
                     <option value="social media advertisement">Social Media Ad</option>
@@ -108,6 +112,7 @@ export default function Main() {
                     value={length}
                     onChange={(e) => setLength(e.target.value)}
                   >
+                    <option></option>
                     <option value="long (>200 words)">Long</option>
                     <option value="medium {>50 words and <200)">Medium</option>
                     <option value="short (<50 words)">Short</option>
@@ -115,7 +120,7 @@ export default function Main() {
                 </div>
                 <div className={styles.formElement}>
                   <label className={styles.label}>Formality</label>
-                  <input
+                  <select
                     type="number"
                     min={1}
                     max={10}
@@ -123,7 +128,14 @@ export default function Main() {
                     placeholder="(Informal) 1 - 10 (Formal)"
                     value={formality}
                     onChange={(e) => setFormality(e.target.value)}
-                  />
+                  >
+                    <option></option>
+                  <option value="very informal">Very informal</option>
+                    <option value="moderately informal">Moderately informal</option>
+                    <option value="neutral">Neutral</option>
+                    <option value="moderately formal">Moderately formal</option>
+                    <option value="very formal">Very formal</option>
+                    </select>
                 </div>
               </div>
             </div>

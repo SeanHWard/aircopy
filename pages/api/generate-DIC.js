@@ -33,7 +33,7 @@ function generatePrompt(type, platform, length, formality, product, audience, CT
     The product/service that is being marketed is ${product}. 
     Target the message to ${audience}. 
     The call to action of the copy is to get the reader to: ${CTA}.
-    On a scale of 1-10, 1 being super informal and 10 being very formal make it a ${formality}.
+    Overall, the formality of the tone and word choice should be ${formality}.
 
     Dont include any template filler words in the response.
     Do not include any hashtags.`
